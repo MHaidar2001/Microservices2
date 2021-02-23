@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 
-namespace Mannschaftsverwaltung.Models
+namespace Mannschaftsverwaltung
 {
     public class Mannschaft
     {
@@ -35,15 +38,37 @@ namespace Mannschaftsverwaltung.Models
 
         }
 
-        public Mannschaft(int id, string name, string sportart)
+        public Mannschaft(int id, string name, string sportart,List<Person> per)
         {
             this.ID = id;
             this.Sportart = sportart;
             this.Mannschaftsname = name;
+            ListePerson = per;
         }
+
+
         #endregion
 
         #region Worker
+        public void AddMannschaft()
+        {
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44362/api/Message";
+
+            string json = JsonConvert.SerializeObject(this);
+
+            Task<HttpResponseMessage> response = client.PostAsJsonAsync(url, json);
+
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
         #endregion
     }
 }
