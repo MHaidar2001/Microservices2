@@ -128,6 +128,55 @@ namespace Personenverwaltung
 
             User = empfang;
         }
+
+        public bool Istvorhanden(int id)
+        {
+            bool ergebnis = false;
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44362/api/Message/" + id;
+
+
+            Task<HttpResponseMessage> response = client.GetAsync(url);
+
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            HttpResponseMessage result = response.Result;
+
+            Task<string> content = result.Content.ReadAsStringAsync();
+
+            try
+            {
+                content.Wait();
+            }
+            catch (Exception)
+            {
+
+            }
+
+            string Person = content.Result;
+
+            Person = JsonConvert.DeserializeObject(Person).ToString();
+            if (Person != "")
+            {
+                ergebnis = false;
+            }
+            else
+            {
+                ergebnis = true;
+            }
+
+            return ergebnis;
+        }
+
+       
         #endregion
 
     }

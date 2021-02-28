@@ -23,17 +23,9 @@ namespace Personenverwaltung.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Verwalter.LoadAllDateFromAPI();
-
-            AuswahlRad.Visible = false;
-            AuswahlBtn.Visible = false;
-            tabl.Visible = false;
-            abbtn.Visible = false;
-            abbtn1.Visible = false;
-            speicherbtn.Visible = false;
-            aenderungspeichernbtn.Visible = false;
             Verwalter.Userabrufen();
-            if(Verwalter.User!="")
+
+            if (Verwalter.User != "")
             {
                 if (Verwalter.User == "Admin" || Verwalter.User == "admin")
                 {
@@ -47,12 +39,22 @@ namespace Personenverwaltung.Views
                     deletecell.Visible = false;
 
                 }
-            }       
+            }
             else
             {
-               Response.Redirect("http://localhost:44380/Views/Gate");
+                Response.Redirect("http://localhost:44380/Views/Gate");
 
-            } 
+            }
+            Verwalter.LoadAllDateFromAPI();
+
+            AuswahlRad.Visible = false;
+            AuswahlBtn.Visible = false;
+            tabl.Visible = false;
+            abbtn.Visible = false;
+            abbtn1.Visible = false;
+            speicherbtn.Visible = false;
+            aenderungspeichernbtn.Visible = false;
+            fehlerloeschen.Visible = false;
             tbl();
 
 
@@ -265,9 +267,18 @@ namespace Personenverwaltung.Views
             int indexbe = Convert.ToInt32(bt.ID);
             indexbe = indexbe - Table1.Rows.Count;
             int id = Convert.ToInt32(Table1.Rows[indexbe].Cells[0].Text);
-
-            Verwalter.DeletePerson(id.ToString());
-            Response.Redirect("Personenverwaltung.aspx");
+            bool wert = Verwalter.Istvorhanden(id);
+            if (wert == true)
+            {
+                Verwalter.DeletePerson(id.ToString());
+                Response.Redirect("Personenverwaltung.aspx");
+            }
+            else
+            {
+                fehlerloeschen.Visible = true;
+            }
+            
+            
 
         }
 
