@@ -26,11 +26,11 @@ namespace Gate
         {
             Name = g;
         }
-
+        
         #endregion
 
         #region Worker
-
+        //Leer
         #endregion
     }
 }
