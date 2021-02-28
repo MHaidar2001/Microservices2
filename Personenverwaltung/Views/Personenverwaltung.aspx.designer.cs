@@ -294,6 +294,15 @@ namespace Personenverwaltung.Views
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl startpage;
 
         /// <summary>
+        /// fehlerloeschen-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fehlerloeschen;
+
+        /// <summary>
         /// Table1-Steuerelement
         /// </summary>
         /// <remarks>

@@ -69,6 +69,62 @@ namespace Mannschaftsverwaltung
 
             }
         }
+
+        public void DeleteToAPI(int id)
+        {
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44362/api/Message";
+
+            //senden
+            Task<HttpResponseMessage> response = client.DeleteAsync(url + "/" +id );
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        public void UpdateToAPI(string editID)
+        {
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44362/api/Message";
+            string json = JsonConvert.SerializeObject(this);
+
+            //senden
+            Task<HttpResponseMessage> response = client.PutAsJsonAsync(url + "/" + editID, json);
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public void Listueberarbeiten(string editID)
+        {
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44362/api/Message?befehl=Ueberarbeiten&MID="+editID;
+
+            string json = JsonConvert.SerializeObject(this);
+
+            Task<HttpResponseMessage> response = client.PostAsJsonAsync(url, json);
+
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
         #endregion
     }
 }

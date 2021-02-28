@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Mannschaftsverwaltung
@@ -54,10 +56,27 @@ namespace Mannschaftsverwaltung
             Sportart = art;
 
         }
+
+
         #endregion
 
         #region Worker
-       
+        public void DeltePersonFromAPI(int personID, string editID)
+        {
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44362/api/Message";
+
+            //senden
+           Task<HttpResponseMessage> response = client.DeleteAsync(url + "?id=" +editID+"&PersonID="+personID+ "&befehl=Person");
+            try
+            {
+               response.Wait();
+            }
+            catch (Exception)
+            {
+            }
+        }
         #endregion
 
     }

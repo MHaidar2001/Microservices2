@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    <title></title>
+    <title>Mannschaftsverwaltung</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -30,7 +30,7 @@
                 <a class="nav-link" href="http://localhost:44330/Views/Personenverwaltung">Personenverwaltung</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Mannschaftsverwaltung</a>
+                <a class="nav-link" href="http://localhost:44362/Views/Mannschaftsverwaltung">Mannschaftsverwaltung</a>
               </li>
             </ul>
           </div>
@@ -41,9 +41,9 @@
                   <div class="col-md-6">
                       <h1>
                           <br id="abstand1" runat="server" />
-                          <asp:Label ID="Label1" runat="server" Text="Personenverwaltung"></asp:Label></h1>
+                          <asp:Label ID="Label1" runat="server" Text="Mannschaftsverwaltung"></asp:Label></h1>
 
-                <asp:Button ID="addbtn" class="btn btn-primary btn-lg btn-block"  runat="server" Text="Person einfügen" Height="45px" Width="170px" />
+                <asp:Button ID="addbtn" class="btn btn-primary btn-lg btn-block"  runat="server" Text="Mannschaft einfügen" Height="45px" Width="232px" OnClick="addbtn_Click" />
 
                       
 
@@ -74,37 +74,91 @@
                               <asp:TableCell runat="server" ID="Einsatzbereichcell1">    
                                         
                                    
-                        <asp:CheckBoxList ID="DatenladenSQL" runat="server" CssClass=""> </asp:CheckBoxList>
-
+                                    <asp:CheckBoxList ID="DatenladenSQL" runat="server" CssClass=""> </asp:CheckBoxList>
+                                     
                               </asp:TableCell>
+                                                 </asp:TableRow>
+                          <asp:TableRow ID="up1" runat="server">
+                                   <asp:TableCell><h4>
+                                         <asp:Label ID="Label3" runat="server" ForeColor="Black" Text="Mitglieder der Mannschaft:"></asp:Label></h4>
+                                   </asp:TableCell>
+
+                          </asp:TableRow>
+
+                           <asp:TableRow ID="up2" runat="server">
+                               <asp:TableCell>
+                                    <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="Wählen Sie bitte das Mitglied aus welches Sie aus der Mannschaft entfernen möchten!"></asp:Label>
+                               </asp:TableCell>
+
+                           </asp:TableRow> 
+
+                          <asp:TableRow ID="up3" runat="server">
+                                    <asp:TableCell>
+                                            <asp:CheckBoxList ID="aenderung" runat="server"  BackColor="White" ForeColor="black" BorderColor="White"></asp:CheckBoxList>
+                                     </asp:TableCell>
+
+                          </asp:TableRow>
+
+                          <asp:TableRow  ID="up4" runat="server">
+                            <asp:TableCell>
+                                    <br />
+                                     <h4>
+                                    <asp:Label ID="Label5" runat="server" ForeColor="Black" Text="verfügbare Personen:"></asp:Label></h4>
+
+                            </asp:TableCell>
+
+                          </asp:TableRow  >
+
+                        <asp:TableRow ID="up5" runat="server">    
+                            <asp:TableCell>
+                                    <asp:Label ID="Label6" runat="server" ForeColor="Green" Text="Wählen Sie bitte die Person aus welche Sie einfügen möchten!"></asp:Label>
+
+                            </asp:TableCell>
+                         </asp:TableRow>
+
+                          <asp:TableRow  ID="up6" runat="server">
+                                  <asp:TableCell>  
+                                      <asp:CheckBoxList ID="verfuegbarePersonen" runat="server"  BackColor="White" ForeColor="black" BorderColor="White"></asp:CheckBoxList>
+                                    <br />
+
+                                  </asp:TableCell>
+                              </asp:TableRow>
                      
                              
-                        </asp:TableRow>
+                        
 
                         
                       </asp:Table>
 
                      <br />
                       <br />
-                           <asp:Button class="btn btn-danger" ID="abbtn1" runat="server" Text="Abbrechen" Width="183px"   BorderStyle="Solid" />
+                           <asp:Button class="btn btn-danger" ID="abbtn1" runat="server" Text="Abbrechen" Width="183px"   BorderStyle="Solid" OnClick="abbtn1_Click" />
                            <asp:Button class="btn btn-success" ID="speicherbtn" runat="server" Text="Speichern" Width="183px"   BorderStyle="Solid" OnClick="speicherbtn_Click"  />
-                           <asp:Button class="btn btn-success" ID="aenderungspeichernbtn" runat="server" Text="Änderungen speichern" Width="183px"   BorderStyle="Solid"/>
+                           <asp:Button class="btn btn-success" ID="aenderungspeichernbtn" runat="server" Text="Änderungen speichern" Width="183px"   BorderStyle="Solid" OnClick="aenderungspeichernbtn_Click"/>
 
                      
                   </div>
                     <div id="startpage" runat="server" class="col-md-4">
-                       <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_spvnlrri.json"  background="transparent"  speed="1"  style="width: 600px; height: 300px;"  loop  autoplay>
-
-                       </lottie-player>
+                      <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_8ywcoffy.json"  background="transparent"  speed="0.5"  style="width: 600px; height: 300px;"  loop  autoplay></lottie-player>
                     </div>    
 
                     </div>
 
                 <br />
             </div>
+            <asp:Table ID="Table5"  class="table table-bordered table-hover" runat="server" BorderStyle="Inset" BackColor="White" ForeColor="Black">
+                <asp:TableRow>
+                    <asp:TableCell BorderColor="Black" >ID</asp:TableCell>
+                    <asp:TableCell BorderColor="Black" >Mannschaft</asp:TableCell>
+                    <asp:TableCell BorderColor="Black" >Sportart</asp:TableCell> 
+                    <asp:TableCell BorderColor="Black" >mitglieder</asp:TableCell>
+                    <asp:TableCell ID="editcell" runat="server" BorderColor="Black" ></asp:TableCell>
+                    <asp:TableCell ID="deletecell" runat="server" BorderColor="Black" ></asp:TableCell>
+                </asp:TableRow>
+             </asp:Table>
 
 
-        </div>
+        
     </form>
 </body>
 </html>

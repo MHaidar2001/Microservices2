@@ -31,7 +31,7 @@
                 <a class="nav-link" href="http://localhost:44330/Views/Personenverwaltung">Personenverwaltung</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Mannschaftsverwaltung</a>
+                <a class="nav-link" href="http://localhost:44362/Views/Mannschaftsverwaltung">Mannschaftsverwaltung</a>
               </li>
             </ul>
           </div>
@@ -97,9 +97,9 @@
                      
                   </div>
                     <div id="startpage" runat="server" class="col-md-4">
-                       <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_spvnlrri.json"  background="transparent"  speed="1"  style="width: 600px; height: 300px;"  loop  autoplay>
+                      <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_dv3etasb.json"  background="transparent"  speed="0.5"  style="width: 600px; height: 300px;"  loop  autoplay>
 
-                       </lottie-player>
+                      </lottie-player>
                     </div>    
 
                     </div>
@@ -107,6 +107,12 @@
                 <br />
             </div>
 
+               
+
+              <div  id="fehlerloeschen" runat="server" class="alert alert-dismissible alert-danger">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>FEHLER!</strong> <a href="#" class="alert-link">Bitte entfernen Sie diese Person aus der Mannschaft.</a>
+            </div>
 
              <asp:Table ID="Table1" ForeColor="Black" BackColor="White" runat="server" class="table table-bordered table-hover" BorderColor="Black" BorderStyle="Solid">
                 <asp:TableHeaderRow runat="server">

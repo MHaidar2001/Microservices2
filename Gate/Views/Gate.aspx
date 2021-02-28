@@ -31,7 +31,7 @@
                 <a class="nav-link" href="http://localhost:44330/Views/Personenverwaltung">Personenverwaltung</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Mannschaftsverwaltung</a>
+                <a class="nav-link" href="http://localhost:44362/Views/Mannschaftsverwaltung">Mannschaftsverwaltung</a>
               </li>
             </ul>
           </div>

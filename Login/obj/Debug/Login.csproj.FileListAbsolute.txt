@@ -120,7 +120,6 @@ H:\3 Jahr\PRO\Lernsituation3\Login\bin\de\System.Web.Mvc.resources.dll
 H:\3 Jahr\PRO\Lernsituation3\Login\bin\de\System.Net.Http.Formatting.resources.dll
 H:\3 Jahr\PRO\Lernsituation3\Login\bin\de\System.Web.Http.resources.dll
 H:\3 Jahr\PRO\Lernsituation3\Login\bin\de\System.Web.Http.WebHost.resources.dll
-H:\3 Jahr\PRO\Lernsituation3\Login\obj\Debug\Login.csprojAssemblyReference.cache
 H:\3 Jahr\PRO\Lernsituation3\Login\obj\Debug\Login.csproj.CoreCompileInputs.cache
 H:\3 Jahr\PRO\Lernsituation3\Login\obj\Debug\Login.csproj.CopyComplete
 H:\3 Jahr\PRO\Lernsituation3\Login\obj\Debug\Login.dll

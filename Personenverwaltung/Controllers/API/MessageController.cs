@@ -146,9 +146,27 @@ namespace Personenverwaltung.Controllers
                 {
                     ergebnis = "ok";
                 }
+                conn.Close();
+
+                
             }
             catch (Exception)
             {
+            }
+            connectionstring = "Server=localhost;Port=3307;Database=mannschaftsverwaltung; Uid =user;Password=user";
+            conn = new MySqlConnection(connectionstring);
+            string sql = "UPDATE `mannschaftsverwaltung` SET `person_name`='" + value1.Name + "',`person_Einsatzsbereich`='" + value1.Einsatzbereich + "' WHERE `Person_id`=" + id;
+            conn.Open();
+            MySqlCommand command1 = new MySqlCommand(sql, conn);
+
+            int anz1 = command1.ExecuteNonQuery();
+            if (anz1 <= 0)
+            {
+                ergebnis = "false";
+            }
+            else
+            {
+                ergebnis = "ok";
             }
         }
 
