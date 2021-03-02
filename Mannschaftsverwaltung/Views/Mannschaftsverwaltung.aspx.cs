@@ -231,6 +231,10 @@ namespace Mannschaftsverwaltung.Views
                             p1.Einsatzbereich = Verwalter.Person[index1].Einsatzbereich;
                             person.Add(p1);
                         }
+                        else
+                        {
+
+                        }
                     }
                     Verwalter.NewMannschaft(Nametxt.Text,DropDownList2.Items[index].Text,person);
                 }
@@ -247,7 +251,7 @@ namespace Mannschaftsverwaltung.Views
             speicherbtn.Visible = true;
             startpage.Visible = false;
 
-
+            
         }
 
         protected void abbtn1_Click(object sender, EventArgs e)

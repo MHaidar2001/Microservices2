@@ -38,7 +38,7 @@
 
 
             <div class="jumbotron row">
-                  <div class="col-md-6">
+                  <div id="box1" runat="server" class="col-md-7">
                       <h1>
                           <br id="abstand1" runat="server" />
                           <asp:Label ID="Label1" runat="server" Text="Mannschaftsverwaltung"></asp:Label></h1>
