@@ -14,7 +14,7 @@ namespace Login
         private int _id;
         private string _Username;
         private string _passwort;
-        private string _status;
+        private string _rolle;
 
         #endregion
 
@@ -25,7 +25,7 @@ namespace Login
         
 
         public string Passwort { get => _passwort; set => _passwort = value; }
-        public string Status { get => _status; set => _status = value; }
+        public string Rolle { get => _rolle; set => _rolle = value; }
 
         #endregion
 
@@ -35,14 +35,14 @@ namespace Login
             Id = 0;
             Username = "";
             Passwort = "";
-            Status = "";
+            Rolle = "";
         }
-        public Login(int id, string user, string passw, string stat)
+        public Login(int id, string user, string passw, string Rolle1)
         {
             Id = id;
             Username = user;
             Passwort = passw;
-            Status = stat;
+            Rolle = Rolle1;
         }
         #endregion
 
@@ -71,6 +71,26 @@ namespace Login
             string index = "";
             index = JsonConvert.DeserializeObject(empfang).ToString();
             return index;
+        }
+
+        public void ADDUSER()
+        {
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44354/api/Message";
+
+            string json = JsonConvert.SerializeObject(this);
+
+            Task<HttpResponseMessage> response = client.PostAsJsonAsync(url, json);
+
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+
+            }
         }
         #endregion
     }

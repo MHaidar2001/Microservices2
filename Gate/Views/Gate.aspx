@@ -42,7 +42,6 @@
 
 
 
-        <div>
               <div class="jumbotron row">
                   <div class="col-md-6">
                       <h1>
@@ -68,7 +67,6 @@
                 <br />
             </div>
 
-        </div>
     </form>
  
 </body>

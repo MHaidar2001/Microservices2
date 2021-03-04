@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,19 +36,76 @@ namespace Login.Controllers
 
             string index = command.ExecuteScalar().ToString();
 
+            
+
             return index.ToString();
         }
-
+       
         // GET: api/Message/5
-        public string Get(int id)
+        public List<Login> Get(int id)
         {
-            return "value";
+            List<Login> list = new List<Login>();
+            string connectionstring = "Server=localhost;Port=3307;Database=loginverwaltung; Uid =user;Password=user";
+            MySqlConnection conn = new MySqlConnection(connectionstring);
+            try
+            {
+                string sqlstring = "SELECT * FROM `login`  ";
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(sqlstring, conn);
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string id1 = reader.GetValue(0).ToString();
+                        string name = reader.GetValue(1).ToString();
+                        string Passwort = reader.GetValue(2).ToString();
+                        string rolle = reader.GetValue(3).ToString();
+
+                        Login value = new Login(Convert.ToInt32(id1), name, Passwort, rolle);
+                        list.Add(value);
+                    }
+                }
+                else
+                { }
+            }
+            catch (MySqlException)
+            {
+                return new List<Login>();
+            }
+            conn.Close();
+            return list;
         }
 
         // POST: api/Message
         public void Post([FromBody]string value)
         {
+            Login P = (Login)JsonConvert.DeserializeObject(value, typeof(Login));
 
+            string connectionstring = "Server=localhost;Port=3307;Database=loginverwaltung; Uid =user;Password=user";
+            MySqlConnection conn = new MySqlConnection(connectionstring);
+            try
+            {
+
+
+                string sqlstring = "INSERT INTO `login`(`Username`, `passwort`, `Roll`) VALUES ('"+P.Username+ "','" + P.Passwort + "','" + P.Rolle + "')";
+                conn.Open();
+
+                MySqlCommand command = new MySqlCommand(sqlstring, conn);
+                int anz = command.ExecuteNonQuery();
+                if (anz <= 0)
+                {
+                }
+                else
+                {
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         // PUT: api/Message/5

@@ -203,3 +203,4 @@ E:\3 Jahr\PRO\Lernsituation3\Gate\obj\Debug\Gate.csproj.CoreCompileInputs.cache
 E:\3 Jahr\PRO\Lernsituation3\Gate\obj\Debug\Gate.csproj.CopyComplete
 E:\3 Jahr\PRO\Lernsituation3\Gate\obj\Debug\Gate.dll
 E:\3 Jahr\PRO\Lernsituation3\Gate\obj\Debug\Gate.pdb
+H:\3 Jahr\PRO\Lernsituation3\Gate\obj\Debug\Gate.csprojAssemblyReference.cache

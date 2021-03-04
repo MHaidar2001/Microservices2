@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace Login
 {
@@ -12,11 +14,13 @@ namespace Login
 
         #region Eigenschaften
         private Login _login;
+        private List<Login> _Liste;
 
         #endregion
 
         #region Accessoren/Modifier
         public Login Login { get => _login; set => _login = value; }
+        public List<Login> Liste { get => _Liste; set => _Liste = value; }
 
         #endregion
 
@@ -24,6 +28,7 @@ namespace Login
         public controller()
         {
             Login = new Login();
+            Liste = new List<Login>();
         }
         #endregion
 
@@ -35,6 +40,43 @@ namespace Login
             string index = user.ueberpruefenInAPI();
             
             return index;
+        }
+
+        public void LoadfromAPi()
+        {
+            Liste.Clear();
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44354/api/Message/1";
+
+
+            Task<HttpResponseMessage> response = client.GetAsync(url);
+
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            HttpResponseMessage result = response.Result;
+
+            Task<string> content = result.Content.ReadAsStringAsync();
+
+            try
+            {
+                content.Wait();
+            }
+            catch (Exception)
+            {
+
+            }
+
+            string empfang = content.Result;
+
+            Liste = (List<Login>)JsonConvert.DeserializeObject<List<Login>>(empfang).ToList();
         }
 
         public void Newsession(string text)
@@ -51,6 +93,13 @@ namespace Login
             {
                 return;
             }
+        }
+
+        public void adduser(string usertxt, string passtxt, string text)
+        {
+            Login L = new Login(0,usertxt,passtxt,text);
+            L.ADDUSER();
+
         }
         #endregion
 
