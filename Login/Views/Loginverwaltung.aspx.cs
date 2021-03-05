@@ -10,8 +10,9 @@ namespace Login.Views
     public partial class Loginverwaltung : System.Web.UI.Page
     {
         private controller _verwalter;
-
+        private static int _editID;
         public controller Verwalter { get => _verwalter; set => _verwalter = value; }
+        public static int EditID { get => _editID; set => _editID = value; }
 
         public Loginverwaltung()
         {
@@ -61,7 +62,7 @@ namespace Login.Views
                 int zahl = i + 1;
 
                 bt.ID = zahl.ToString();
-               // bt.Click += bearbeitenDB;
+                bt.Click += bearbeitenDB;
 
                 c1.Controls.Add(bt);
                 row.Cells.Add(c1);
@@ -76,7 +77,7 @@ namespace Login.Views
                 bt = new Button();
                 c1.Controls.Add(bt);
                 bt.Text = "Löschen";
-             //   bt.Click += loeschenDb;
+               bt.Click += loeschenDb;
                 bt.CssClass = "btn btn-danger";
 
                 int zahl = 0;
@@ -88,12 +89,60 @@ namespace Login.Views
                 this.Table1.Rows[i + 1].Controls.Add(c1);
             }
         }
+        protected void bearbeitenDB(object sender, EventArgs e)
+        {
+            tabl.Visible = true;
+            Button1.Visible = false;
+            abstand.Visible = false;
+            speicherbtn.Visible = false;
+            Button bt = (Button)sender;
+            int indexbe = Convert.ToInt32(bt.ID);
+            int id = Convert.ToInt32(Table1.Rows[indexbe].Cells[0].Text);
+            EditID = id;
+            for (int index = 0; index < Verwalter.Liste.Count; index++)
+            {
+                if (Verwalter.Liste[index].Id == id)
+                {
+                    Usertxt.Text = Verwalter.Liste[index].Username;
+                    Passtxt.Text = Verwalter.Liste[index].Passwort;
+                }
+            }
+        }
+        protected void aenderungsbtn_Click(object sender, EventArgs e)
+        {
+            for (int index = 0; index < DropDownList1.Items.Count; index++)
+            {
+                if (DropDownList1.Items[index].Selected)
+                {
+                    Verwalter.bearbeiten(EditID,Usertxt.Text, Passtxt.Text, DropDownList1.Items[index].Text);
 
+                }
+                else
+                {
+
+                }
+            }
+            Response.Redirect("Loginverwaltung.aspx");
+
+
+        }
+        protected void loeschenDb(object sender, EventArgs e)
+        {
+            Button bt = (Button)sender;
+            int indexbe = Convert.ToInt32(bt.ID);
+            indexbe = indexbe - Table1.Rows.Count;
+
+            int id = Convert.ToInt32(Table1.Rows[indexbe].Cells[0].Text);
+            Verwalter.LoeschenM(id);
+            Response.Redirect("Loginverwaltung.aspx");
+
+        }
         protected void Button1_Click(object sender, EventArgs e)
         {
             tabl.Visible = true;
             Button1.Visible = false;
             abstand.Visible = false;
+            aenderungsbtn.Visible = false;
         }
 
         protected void abbtn1_Click(object sender, EventArgs e)

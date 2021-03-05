@@ -51,7 +51,10 @@
 
                  
                 <asp:Button ID="Button1" class="btn btn-primary btn-lg btn-block"  runat="server" Text="Login" Height="45px" Width="170px" OnClick="Button1_Click" />
-                <asp:Button ID="btnabmelden" class="btn btn-primary btn-lg btn-block"  runat="server" Text="Abmelden" Height="45px" Width="170px" OnClick="btnabmelden_Click"/>
+                 <asp:Button ID="benutzerverwaltung" class="btn btn-primary btn-lg btn-block"  runat="server" Text="Loginverwaltung" Height="45px" Width="170px" OnClick="benutzerverwaltung_Click"/>
+
+                <asp:Button ID="btnabmelden" class="btn btn-danger"  runat="server" Text="Abmelden" Height="45px" Width="170px" OnClick="btnabmelden_Click"/>
+
                   </div>
                     <div id="loginnbox" runat="server" class="col-md-4">
                         <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_Lcwy20.json"  background="transparent"  speed="1"  style="width: 600px; height: 300px;"  loop autoplay>

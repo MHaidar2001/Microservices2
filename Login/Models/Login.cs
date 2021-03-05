@@ -92,6 +92,42 @@ namespace Login
 
             }
         }
+
+        public void DeleteToAPI(int id)
+        {
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44354/api/Message";
+
+            //senden
+            Task<HttpResponseMessage> response = client.DeleteAsync(url + "/" + id);
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        public void bearbeitenToApi(int editID)
+        {
+            HttpClient client = new HttpClient();
+
+            string url = "http://localhost:44354/api/Message";
+            string json = JsonConvert.SerializeObject(this);
+
+            //senden
+            Task<HttpResponseMessage> response = client.PutAsJsonAsync(url + "/" + editID, json);
+            try
+            {
+                response.Wait();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
         #endregion
     }
 }

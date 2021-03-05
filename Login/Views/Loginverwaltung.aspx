@@ -42,7 +42,7 @@
 
 
               <div class="jumbotron row">
-                  <div class="col-md-5">
+                  <div class="col-md-6">
                       <h1>
                           <br id="abstand" runat="server"/>
                           <asp:Label ID="Label1" runat="server" Text="Loginverwaltung"></asp:Label></h1>
@@ -71,8 +71,9 @@
                           <asp:TableRow>
 
                               <asp:TableCell>
-                                        <asp:Button class="btn btn-danger" ID="abbtn1" runat="server" Text="Abbrechen" Width="183px"   BorderStyle="Solid" OnClick="abbtn1_Click"/>
-                                       <asp:Button class="btn btn-success" ID="speicherbtn" runat="server" Text="Speichern" Width="183px"   BorderStyle="Solid" OnClick="speicherbtn_Click"  />
+                                        <asp:Button class="btn btn-danger" ID="abbtn1" runat="server" Text="Abbrechen" Width="150px"   BorderStyle="Solid" OnClick="abbtn1_Click"/>
+                                       <asp:Button class="btn btn-success" ID="speicherbtn" runat="server" Text="Speichern" Width="150px"   BorderStyle="Solid" OnClick="speicherbtn_Click"  />
+                                       <asp:Button class="btn btn-success" ID="aenderungsbtn" runat="server" Text="Änderung Speichern" Width="183px"   BorderStyle="Solid" OnClick="aenderungsbtn_Click"  />
                               </asp:TableCell>
                           </asp:TableRow>
 
@@ -83,7 +84,7 @@
 
                   </div>
                         
-                  <div id="willkomenbox" runat="server" class="col-md-6">
+                  <div id="willkomenbox" runat="server" class="col-md-4">
                        <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_q5pk6p1k.json"  background="transparent"  speed="0.5"  style="width: 600px; height: 300px;"  loop  autoplay>
 
                        </lottie-player>

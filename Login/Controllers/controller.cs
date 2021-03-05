@@ -101,6 +101,20 @@ namespace Login
             L.ADDUSER();
 
         }
+
+        internal void LoeschenM(int id)
+        {
+            Login Value = new Login();
+
+            Value.DeleteToAPI(id);
+        }
+
+        public void bearbeiten(int editID, string text1, string text2, string text3)
+        {
+            Login user = new Login(editID,text1,text2,text3);
+            user.bearbeitenToApi(editID);
+            
+        }
         #endregion
 
     }

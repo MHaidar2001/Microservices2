@@ -111,11 +111,59 @@ namespace Login.Controllers
         // PUT: api/Message/5
         public void Put(int id, [FromBody]string value)
         {
+            string ergebnis = "false;";
+            Login value1 = (Login)JsonConvert.DeserializeObject(value, typeof(Login));
+            string connectionstring = "Server=localhost;Port=3307;Database=loginverwaltung; Uid =user;Password=user";
+            MySqlConnection conn = new MySqlConnection(connectionstring);
+            try
+            {
+                string sqlstring = "UPDATE `login` SET Username='" + value1.Username + "',`passwort`='" + value1.Passwort + "',`Roll`='" + value1.Rolle+"' WHERE id="+id;
+                MySqlCommand command = new MySqlCommand(sqlstring, conn);
+                conn.Open();
+                int anz = command.ExecuteNonQuery();
+                if (anz <= 0)
+                {
+                    ergebnis = "false";
+                }
+                else
+                {
+                    ergebnis = "ok";
+                }
+                conn.Close();
+
+
+            }
+            catch (Exception)
+            {
+            }
         }
 
         // DELETE: api/Message/5
         public void Delete(int id)
         {
+            string connectionstring = "Server=localhost;Port=3307;Database=loginverwaltung; Uid =user;Password=user";
+            MySqlConnection conn = new MySqlConnection(connectionstring);
+            try
+            {
+                string sqlstring = "DELETE FROM `login` WHERE id=" + id ;
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(sqlstring, conn);
+
+                int anz = command.ExecuteNonQuery();
+                if (anz <= 0)
+                {
+                }
+                else
+                {
+                }
+                conn.Close();
+
+
+
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

@@ -36,6 +36,7 @@ namespace Gate.Views
                     Button1.Visible = false;
                     btnabmelden.Visible = true;
                     loginnbox.Visible = false;
+
                 }
                 else
                 {
@@ -48,6 +49,7 @@ namespace Gate.Views
                 btnabmelden.Visible = false;
                 willkomenbox.Visible = false;
                 navbar.Visible = false;
+                benutzerverwaltung.Visible = false;
             }
         }
 
@@ -60,6 +62,12 @@ namespace Gate.Views
         {
             Verwalter.Liste.RemoveAt(0);
             Response.Redirect("Gate.aspx");
+        }
+
+        protected void benutzerverwaltung_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://localhost:44354/Views/Loginverwaltung");
+
         }
     }
 }
