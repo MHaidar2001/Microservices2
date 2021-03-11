@@ -22,6 +22,7 @@ namespace Login.Views
         {
             Label3.Visible = false;
             fehlerline.Visible = false;
+            Verwalter.LoadfromAPi();
 
 
         }

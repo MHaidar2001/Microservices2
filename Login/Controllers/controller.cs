@@ -81,6 +81,8 @@ namespace Login
 
         public void Newsession(string text)
         {
+            string Name = "";
+            
             HttpClient client = new HttpClient();
 
             string url = "http://localhost:44380/api/Message?user=" + text;

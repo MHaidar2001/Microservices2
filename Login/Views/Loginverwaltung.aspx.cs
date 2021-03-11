@@ -21,7 +21,12 @@ namespace Login.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            tabl.Visible = false;
+            if(!IsPostBack)
+            {
+                fehlerloeschen.Visible = false;
+                tabl.Visible = false;
+
+            }
             tbl();
             
         }
@@ -110,19 +115,75 @@ namespace Login.Views
         }
         protected void aenderungsbtn_Click(object sender, EventArgs e)
         {
-            for (int index = 0; index < DropDownList1.Items.Count; index++)
+            string name = "";
+            for (int index = 0; index < Verwalter.Liste.Count; index++)
             {
-                if (DropDownList1.Items[index].Selected)
+                if (Verwalter.Liste[index].Id == EditID)
                 {
-                    Verwalter.bearbeiten(EditID,Usertxt.Text, Passtxt.Text, DropDownList1.Items[index].Text);
-
+                    name = Verwalter.Liste[index].Username;
                 }
-                else
+            }
+            bool ergebnis = true;
+
+
+            if(Usertxt.Text!=name)
+            {
+                for (int x = 0; x < Verwalter.Liste.Count; x++)
                 {
+                    if (Usertxt.Text == Verwalter.Liste[x].Username)
+                    {
+                        fehlerloeschen.Visible = true;
+                        ergebnis = false;
+                    }
+                    else
+                    {
+
+                    }
+
+
 
                 }
             }
-            Response.Redirect("Loginverwaltung.aspx");
+            else
+            {
+                ergebnis = true;
+            }
+
+           
+            if (ergebnis == true)
+            {
+                for (int index = 0; index < DropDownList1.Items.Count; index++)
+                {
+                    if (DropDownList1.Items[index].Selected)
+                    {
+                        if (Passtxt.Text != "")
+                        {
+                            Verwalter.bearbeiten(EditID, Usertxt.Text, Passtxt.Text, DropDownList1.Items[index].Text);
+                        }
+                        else
+                        {
+                            for (int index1 = 0; index1 < Verwalter.Liste.Count; index1++)
+                            {
+                                if (Verwalter.Liste[index1].Id == EditID)
+                                {
+                                    string pass = Usertxt.Text = Verwalter.Liste[index1].Username;
+                                    Verwalter.bearbeiten(EditID, Usertxt.Text, pass, DropDownList1.Items[index].Text);
+
+                                }
+                            }
+                        }
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                Response.Redirect("Loginverwaltung.aspx");
+
+            }
+
+         
 
 
         }
@@ -152,15 +213,35 @@ namespace Login.Views
 
         protected void speicherbtn_Click(object sender, EventArgs e)
         {
-            for(int index=0;index<DropDownList1.Items.Count;index++)
+            bool ergebnis = true;
+            for(int x=0;x<Verwalter.Liste.Count;x++)
             {
-                if(DropDownList1.Items[index].Selected)
+                if(Usertxt.Text==Verwalter.Liste[x].Username)
                 {
-                    Verwalter.adduser(Usertxt.Text, Passtxt.Text,DropDownList1.Items[index].Text);
+                    fehlerloeschen.Visible = true;
+                    ergebnis = false;
                 }
-            }
-            Response.Redirect("Loginverwaltung.aspx");
+                else
+                {
 
+                }
+               
+                
+
+            }
+            if(ergebnis==true)
+            {
+                for (int index = 0; index < DropDownList1.Items.Count; index++)
+                {
+                    if (DropDownList1.Items[index].Selected)
+                    {
+                        Verwalter.adduser(Usertxt.Text, Passtxt.Text, DropDownList1.Items[index].Text);
+                    }
+                }
+                Response.Redirect("Loginverwaltung.aspx");
+
+            }
+           
         }
     }
 }

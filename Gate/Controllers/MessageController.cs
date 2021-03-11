@@ -28,11 +28,11 @@ namespace Gate.Controllers
 
         #region Worker
         // GET: api/Message
-        public string Get(string user="" )
+        public string Get(string user = "", string rechte = "")
         {
             if(user!="")
             {
-                Verwalter.SessionErstellen(user);
+                Verwalter.SessionErstellen(user,rechte);
 
             }
             else

@@ -26,9 +26,10 @@ namespace Gate
         #endregion
 
         #region Worker
-        public void SessionErstellen(string user)
+        public void SessionErstellen(string user,string rolle)
         {
-            Gate g = new Gate(user);
+            Gate g = new Gate();
+            g.Name = user;
             Liste.Add(g);
         }
         #endregion

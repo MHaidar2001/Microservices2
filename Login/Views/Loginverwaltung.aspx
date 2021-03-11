@@ -92,6 +92,10 @@
 
                 <br />
             </div>
+               <div  id="fehlerloeschen" runat="server" class="alert alert-dismissible alert-danger">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>FEHLER!</strong> <a href="#" class="alert-link">Der Benutzer Name ist bereits vergeben.</a>
+            </div>
             <asp:Table ID="Table1" ForeColor="Black" BackColor="White" runat="server" class="table table-bordered table-hover" BorderColor="Black" BorderStyle="Solid">
                 <asp:TableHeaderRow runat="server">
                     <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid"  BorderWidth="2">ID</asp:TableCell>

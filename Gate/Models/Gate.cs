@@ -9,11 +9,13 @@ namespace Gate
     {
         #region Eigenschaften
         private string _name;
+        private string _rolle;
 
         #endregion
 
         #region Accessoren/Modifier
         public string Name { get => _name; set => _name = value; }
+        public string Rolle { get => _rolle; set => _rolle = value; }
 
         #endregion
 
@@ -21,10 +23,12 @@ namespace Gate
         public Gate()
         {
             Name = "";
+            Rolle = "";
         }
-        public Gate(string g="")
+        public Gate(string g,string r)
         {
             Name = g;
+            Rolle = r;
         }
 
         #endregion
