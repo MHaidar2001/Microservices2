@@ -42,6 +42,10 @@ namespace Gate.Views
                 {
                     
                 }
+                if((string)Session["user"]!="Admin")
+                {
+                    benutzerverwaltung.Visible = false;
+                }
 
             }
             else

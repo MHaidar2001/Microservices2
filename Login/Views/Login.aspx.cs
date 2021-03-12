@@ -40,8 +40,15 @@ namespace Login.Views
             }
             else if (index == "1")
             {
-                string username = TxtUser.Text;
-                Verwalter.Newsession(TxtUser.Text);
+                string rolle = "";
+                for(int index1=0;index1<Verwalter.Liste.Count;index1++)
+                {
+                    if (Verwalter.Liste[index1].Username==TxtUser.Text)
+                    {
+                        rolle = Verwalter.Liste[index1].Rolle;
+                    }
+                }
+                Verwalter.Newsession(rolle);
                 Response.Redirect("http://localhost:44380/Views/Gate");
 
             }

@@ -9,7 +9,6 @@ namespace Gate
     {
         #region Eigenschaften
         private List<Gate> _liste;
-
         #endregion
 
         #region Accessoren/Modifier
