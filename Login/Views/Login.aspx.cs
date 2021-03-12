@@ -46,10 +46,12 @@ namespace Login.Views
                     if (Verwalter.Liste[index1].Username==TxtUser.Text)
                     {
                         rolle = Verwalter.Liste[index1].Rolle;
+                        Verwalter.Eingelogt = Verwalter.Liste[index1].Username;
                     }
                 }
                 Verwalter.Newsession(rolle);
                 Response.Redirect("http://localhost:44380/Views/Gate");
+                
 
             }
             else if (index=="3")

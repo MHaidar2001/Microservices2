@@ -39,22 +39,29 @@ namespace Login.Views
             TableRow row = new TableRow();
             TableCell cell = new TableCell();
             int wert = 1;
-
+            
             for (int index = 0; index < Verwalter.Liste.Count; index++)
             {
-                row = new TableRow();
-                cell = new TableCell();
-                cell.Text = Verwalter.Liste[index].Id.ToString();
-                row.Cells.Add(cell);
+                if (Verwalter.Eingelogt != Verwalter.Liste[index].Username)
+                {
+                    row = new TableRow();
+                    cell = new TableCell();
+                    cell.Text = Verwalter.Liste[index].Id.ToString();
+                    row.Cells.Add(cell);
 
-                cell = new TableCell();
-                cell.Text = Verwalter.Liste[index].Username;
-                row.Cells.Add(cell);
-                
-                cell = new TableCell();
-                cell.Text = Verwalter.Liste[index].Rolle;
-                row.Cells.Add(cell);
-                Table1.Rows.Add(row);
+                    cell = new TableCell();
+                    cell.Text = Verwalter.Liste[index].Username;
+                    row.Cells.Add(cell);
+
+                    cell = new TableCell();
+                    cell.Text = Verwalter.Liste[index].Rolle;
+                    row.Cells.Add(cell);
+                    Table1.Rows.Add(row);
+                }
+                else
+                {
+
+                }
             }
 
             TableCell c1 = new TableCell();

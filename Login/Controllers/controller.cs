@@ -15,12 +15,14 @@ namespace Login
         #region Eigenschaften
         private Login _login;
         private List<Login> _Liste;
+        private string _eingelogt;
 
         #endregion
 
         #region Accessoren/Modifier
         public Login Login { get => _login; set => _login = value; }
         public List<Login> Liste { get => _Liste; set => _Liste = value; }
+        public string Eingelogt { get => _eingelogt; set => _eingelogt = value; }
 
         #endregion
 
@@ -29,6 +31,7 @@ namespace Login
         {
             Login = new Login();
             Liste = new List<Login>();
+            Eingelogt = "";
         }
         #endregion
 
