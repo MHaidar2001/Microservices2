@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gate", "..\Gate\Gate.csproj", "{BC01C4D7-1926-496B-986C-DD89B73B1528}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personenverwaltung", "..\Personenverwaltung\Personenverwaltung.csproj", "{0FD5BE15-5366-41B8-9588-780CC9B6612D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mannschaftsverwaltung", "..\Mannschaftsverwaltung\Mannschaftsverwaltung.csproj", "{886C84F0-3F55-4BFD-BB32-15C492CE837C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turnier-Spieleverwaltung", "..\Turnier-Spieleverwaltung\Turnier-Spieleverwaltung.csproj", "{CFD10244-B1C5-48B4-B81E-A16C23E4523C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{886C84F0-3F55-4BFD-BB32-15C492CE837C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{886C84F0-3F55-4BFD-BB32-15C492CE837C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{886C84F0-3F55-4BFD-BB32-15C492CE837C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD10244-B1C5-48B4-B81E-A16C23E4523C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD10244-B1C5-48B4-B81E-A16C23E4523C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD10244-B1C5-48B4-B81E-A16C23E4523C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD10244-B1C5-48B4-B81E-A16C23E4523C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
