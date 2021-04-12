@@ -33,6 +33,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="http://localhost:44362/Views/Mannschaftsverwaltung">Mannschaftsverwaltung</a>
               </li>
+                 
+                            <li class="nav-item">
+                            <a class="nav-link" href="http://localhost:56208/Views/Turnierverwaltung">Turnierverwaltung</a>
+                          </li>
             </ul>
           </div>
         </nav>

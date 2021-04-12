@@ -28,7 +28,7 @@ namespace Mannschaftsverwaltung
         #region Konstruktoren
         public Mannschaft()
         {
-            this.Mannschaftsname = "FC Bonn";
+            this.Mannschaftsname = "";
             ID = 0;
             Sportart = "";
             ListePerson = new List<Person>();
